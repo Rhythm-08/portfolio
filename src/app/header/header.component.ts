@@ -12,9 +12,9 @@ export class HeaderComponent {
 
   navigationItems = [
     { label: 'About', route: '/about' },
-    { label: 'Blogs', route: '/blog' },
+    { label: 'Blogs', route: '/blogs' },
     { label: 'Projects', route: '/projects' },
-    { label: 'Contact Us', route: '/contact-us' }
+    { label: 'Contact Me', route: '/contact' }
   ];
 
   constructor(private router: Router) {}

@@ -1,1 +1,98 @@
-<p>profile works!</p>
+<div class="profile-section">
+    <div class="container">
+      <!-- Profile Hero -->
+      <div class="profile-hero">
+        <div class="profile-image-container">
+          <img 
+            [src]="profileImage" 
+            alt="Rhythm Sharma" 
+            class="profile-image"
+          >
+        </div>
+        
+        <div class="profile-content">
+          <h1 class="profile-title">
+            Hey, I'm Rhythm. I'm a MEAN Stack Developer and Data Scientist.
+          </h1>
+          
+          <div class="social-links">
+            @for (link of socialLinks; track $index) {
+                <a 
+                  [href]="link.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-link"
+                  [attr.aria-label]="link.name"
+                >
+                <fa-icon [icon]="link.icon" class="social-icon"></fa-icon>
+                <span class="social-name">{{ link.name }}</span>
+                </a>
+            }
+          </div>
+        </div>
+      </div>
+  
+      <!-- Career Section -->
+      <section class="career-section">
+        <h2 class="section-title">Career Journey</h2>
+        <div class="career-timeline">
+            @for (item of careerHistory; track $index) {
+                <div 
+                  class="career-item"
+                  [class.latest]="$index === 0"
+                >
+                  <div class="career-logo">
+                    <img 
+                      [src]="item.logo" 
+                      [alt]="item.company + ' logo'"
+                    >
+                  </div>
+                  <div class="career-details">
+                    <h3 class="career-position">{{ item.position }}</h3>
+                    <h4 class="career-company">{{ item.company }}</h4>
+                    <div class="career-meta">
+                      <span class="career-duration">{{ item.duration }}</span>
+                      <span class="career-location">{{ item.location }}</span>
+                    </div>
+                    <div class="career-description" [innerHTML]="item.description"></div>
+                  </div>
+                </div>
+            }
+        </div>
+      </section>
+  
+      <!-- Recent Posts Section -->
+      <section class="recent-posts">
+        <h2 class="section-title">Recent Posts</h2>
+        
+        <div class="posts-grid">
+            @for (post of recentPosts; track $index) {
+                <article
+                  class="post-card"
+                  (click)="navigateToPost(post.slug)"
+                >
+                  <div class="post-header">
+                    <span class="post-icon">{{ post.icon }}</span>
+                    <h3 class="post-title">{{ post.title }}</h3>
+                  </div>
+                  
+                  <div class="post-meta">
+                    <span class="post-date">{{ post.date }}</span>
+                    <span class="post-separator">•</span>
+                    <span class="post-read-time">{{ post.readTime }}</span>
+                    <span class="post-separator">•</span>
+                    <span class="post-category">{{ post.category }}</span>
+                  </div>
+                  
+                  <p class="post-excerpt">{{ post.excerpt }}</p>
+                </article>
+            }
+        </div>
+        
+        <div class="posts-footer">
+          <a routerLink="/blogs" class="read-more-link">
+            Read more posts →
+          </a>
+        </div>
+      </section>
+    </div>
