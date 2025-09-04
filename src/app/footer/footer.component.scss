@@ -1,0 +1,74 @@
+.footer {
+    padding: 20px 0;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-left .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .logo-icon {
+    color: rgb(168, 173, 178); 
+    font-weight: bold;
+  }
+  
+  .name {
+    box-shadow: none;
+    text-decoration: none; 
+    font-weight: 500; 
+    color: rgb(168, 173, 178); 
+    line-height: 1.5rem;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .social-link {
+    color: #9ca3af;
+    font-size: 24px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .social-link:hover {
+    color: #ffffff;
+  }
+  
+  /* Icon classes - you can replace these with your preferred icon library */
+  .icon-twitter:before { content: "🐦"; }
+  .icon-instagram:before { content: "📷"; }
+  .icon-linkedin:before { content: "💼"; }
+  .icon-github:before { content: "🐙"; }
+  
+  /* If using Font Awesome, replace the above with: */
+  /*
+  .icon-twitter:before { content: "\f099"; font-family: "Font Awesome 5 Brands"; }
+  .icon-instagram:before { content: "\f16d"; font-family: "Font Awesome 5 Brands"; }
+  .icon-linkedin:before { content: "\f08c"; font-family: "Font Awesome 5 Brands"; }
+  .icon-github:before { content: "\f09b"; font-family: "Font Awesome 5 Brands"; }
+  */
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+    
+    .social-links {
+      justify-content: center;
+    }
+  }

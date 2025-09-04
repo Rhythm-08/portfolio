@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono);@import url(https://fonts.googleapis.com/css?family=Roboto);body {
+    overflow-x: hidden;
+    position: relative
+}
+*{
+    background-color: #0c0f11;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    height: auto;
+}
+
+*,p,section {
+    font-family: Helvetica Neue,sans-serif
+}
+
+p,section {
+    font-weight: 400;
+    line-height: 32px
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+a:hover {
+    color: #3182ce
+}
+
+.icon {
+    color: #5f656d
+}
+
+section a:hover {
+    background: #cbcffc
+}
+
+/* Whole page layout */
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #f5f5f5;
+  }
+  
+  /* Center header, content, and footer */
+  header,
+  main,
+  footer {
+    max-width: 700px;  
+    margin: 0 auto;
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  main {
+    flex: 1;
+  }

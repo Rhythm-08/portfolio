@@ -1,0 +1,60 @@
+<header class="header">
+    <div class="header-content">
+      <!-- Logo/Brand -->
+      <div class="header-left">
+        <a routerLink="/" class="logo">
+          Rhythm 
+        </a>
+      </div>
+  
+      <!-- Desktop Navigation -->
+      <nav class="header-right desktop-nav">
+        <ul class="nav-list">
+        @for(item of navigationItems; track $index){
+          <li class="nav-item" >
+            <a 
+              [routerLink]="item.route"
+              routerLinkActive="active"
+              class="nav-link"
+              (click)="navigateTo(item.route)"
+            >
+              {{ item.label }}
+            </a>
+          </li>
+        }
+
+        </ul>
+      </nav>
+  
+      <!-- Mobile Menu Button -->
+      <button 
+        class="mobile-menu-btn"
+        (click)="toggleMobileMenu()"
+        [attr.aria-expanded]="isMobileMenuOpen"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="hamburger-line" [class.open]="isMobileMenuOpen"></span>
+        <span class="hamburger-line" [class.open]="isMobileMenuOpen"></span>
+        <span class="hamburger-line" [class.open]="isMobileMenuOpen"></span>
+      </button>
+    </div>
+  
+    <!-- Mobile Navigation Menu -->
+    <nav class="mobile-nav" [class.open]="isMobileMenuOpen">
+      <ul class="mobile-nav-list">
+        @for(item of navigationItems; track $index){
+            <li class="mobile-nav-item" >
+              <a 
+                [routerLink]="item.route"
+                routerLinkActive="active"
+                class="mobile-nav-link"
+                (click)="navigateTo(item.route)"
+              >
+                {{ item.label }}
+              </a>
+            </li>
+        }
+      </ul>
+    </nav>
+  </header>
+  
