@@ -21,6 +21,36 @@ p,section {
     font-weight: 400;
 }
 
+.toast-error {
+    background-color: #BD362F !important;
+    .toast-title,
+    .toast-message {
+      background-color: inherit !important;
+    }
+    .toast-close-button span {
+        background-color: #BD362F !important;
+        color: #fff;          /* make sure the "×" is visible */
+        border-radius: 50%;   /* optional, makes it circular */
+        padding: 2px 6px;     /* adjust spacing */
+        display: inline-block;
+      }
+    }
+
+.toast-success{
+    background-color: #51A351 !important;
+    .toast-title,
+    .toast-message {
+      background-color: inherit !important;
+    }
+    .toast-close-button span {
+        background-color: #51A351 !important;
+        color: #fff;          /* make sure the "×" is visible */
+        border-radius: 50%;   /* optional, makes it circular */
+        padding: 2px 6px;     /* adjust spacing */
+        display: inline-block;
+      }
+}
+  
 
 a {
     color: inherit;

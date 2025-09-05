@@ -1,1 +1,109 @@
-<p>contact-us works!</p>
+<div class="contact-page">
+    <div class="container">
+      <!-- Header Section -->
+      <section class="contact-header">
+        <h1 class="page-title">Get In Touch</h1>
+        <p class="page-subtitle">
+          Have a question or want to work together? I'd love to hear from you. 
+          Send me a message and I'll respond as soon as possible.
+        </p>
+      </section>
+  
+      <!-- Contact Form Section -->
+      <section class="contact-form-section">
+        <div class="form-container">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+            
+            <!-- Full Name Field -->
+            <div class="form-group">
+              <label for="fullName" class="form-label">Full Name *</label>
+              <input
+                type="text"
+                id="fullName"
+                formControlName="fullName"
+                class="form-input"
+                [class.error]="isFieldInvalid('fullName')"
+                placeholder="Enter your full name"
+                autocomplete="name"
+              >
+              <div class="error-message" *ngIf="isFieldInvalid('fullName')">
+                {{ getFieldError('fullName') }}
+              </div>
+            </div>
+  
+            <!-- Email Field -->
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address *</label>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                class="form-input"
+                [class.error]="isFieldInvalid('email')"
+                placeholder="Enter your email address"
+                autocomplete="email"
+              >
+              <div class="error-message" *ngIf="isFieldInvalid('email')">
+                {{ getFieldError('email') }}
+              </div>
+            </div>
+  
+            <!-- Message Field -->
+            <div class="form-group">
+              <label for="message" class="form-label">Message *</label>
+              <textarea
+                id="message"
+                formControlName="message"
+                class="form-textarea"
+                [class.error]="isFieldInvalid('message')"
+                placeholder="Tell me about your project or just say hello..."
+                rows="6"
+                autocomplete="off"
+              ></textarea>
+              <div class="error-message" *ngIf="isFieldInvalid('message')">
+                {{ getFieldError('message') }}
+              </div>
+            </div>
+  
+            <!-- Submit Button -->
+            <div class="form-group">
+              <button
+                type="submit"
+                class="submit-btn"
+                [disabled]="isSubmitting"
+                [class.loading]="isSubmitting"
+              >
+                <span *ngIf="!isSubmitting">Send Message</span>
+                <span *ngIf="isSubmitting" class="loading-content">
+                  <span class="spinner"></span>
+                  Sending...
+                </span>
+              </button>
+            </div>
+  
+          </form>
+        </div>
+      </section>
+  
+      <!-- Contact Info Section -->
+      <section class="contact-info-section">
+        <div class="contact-info">
+          <h2 class="info-title">Other Ways to Reach Me</h2>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <span class="method-icon">📧</span>
+              <span class="method-text">{{'rhythmsharma808@gmail.com'}}</span>
+            </div>
+            <div class="contact-method">
+              <span class="method-icon">💼</span>
+              <span class="method-text">LinkedIn: /in/rhythm08</span>
+            </div>
+            <div class="contact-method">
+              <span class="method-icon">⏱️</span>
+              <span class="method-text">I typically respond within 24-48 hours</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>

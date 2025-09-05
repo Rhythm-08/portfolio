@@ -7,7 +7,6 @@ import {
   faLinkedin,
   faXTwitter,
 } from '@fortawesome/free-brands-svg-icons';
-import { NgStyle } from "../../../node_modules/@angular/common/common_module.d-NEF7UaHr";
 
 interface SocialLink {
   name: string;
@@ -113,7 +112,7 @@ export class ProfileComponent {
       id: 1,
       company: 'ChicMic Studios',
       position: 'Data Scientist',
-      duration: '2019 - 2021',
+      duration: '2024 - Present',
       location: 'Chandigarh, India',
       description: `
         <b>Quality Audit Automation</b>: Built an AI-powered workflow for scanning legal documents, detecting potential errors, and surfacing them on a frontend correction dashboard. Leveraged OpenAI APIs, Python, and prompt engineering to reduce manual review efforts by over 60%.
