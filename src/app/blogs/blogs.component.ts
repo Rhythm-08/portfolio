@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 interface BlogPost {
@@ -18,6 +19,12 @@ interface BlogPost {
   styleUrl: './blogs.component.scss'
 })
 export class BlogsComponent {
+  private router = inject(Router);
+
+  navigateToPost(postId: string) {
+    this.router.navigate(['/blog', postId]);
+  }
+  
   blogPosts: BlogPost[] = [
     {
       id: '1',

@@ -13,6 +13,7 @@
         *ngFor="let post of blogPosts" 
         class="blog-post"
         [attr.data-category]="post.category.toLowerCase()"
+        (click)="navigateToPost(post.id)"
       >
         <div class="post-header">
           <span class="post-emoji">{{ post.emoji }}</span>

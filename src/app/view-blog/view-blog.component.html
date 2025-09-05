@@ -1,0 +1,88 @@
+<div class="blog-reader-container" *ngIf="currentPost">
+    <!-- Navigation -->
+    <nav class="blog-nav">
+      <button class="back-button" (click)="goBack()">
+        <span class="back-icon">←</span>
+        Back to Blog
+      </button>
+    </nav>
+
+    <!-- Blog Header -->
+    <header class="blog-header">
+      <div class="blog-meta">
+        <span class="blog-category" [class]="'category-' + currentPost.category.toLowerCase()">
+          {{ currentPost.category }}
+        </span>
+        <span class="meta-separator">•</span>
+        <span class="blog-date">{{ currentPost.date }}</span>
+        <span class="meta-separator">•</span>
+        <span class="blog-read-time">{{ currentPost.readTime }}</span>
+      </div>
+      
+      <div class="blog-title-section">
+        <span class="blog-emoji">{{ currentPost.emoji }}</span>
+        <h1 class="blog-title">{{ currentPost.title }}</h1>
+      </div>
+
+      <div class="blog-author" *ngIf="currentPost.author">
+        <span class="author-label">By </span>
+        <span class="author-name">{{ currentPost.author }}</span>
+      </div>
+
+      <div class="blog-tags" *ngIf="currentPost.tags && currentPost.tags.length > 0">
+        <span class="tag" *ngFor="let tag of currentPost.tags">{{ tag }}</span>
+      </div>
+    </header>
+
+    <!-- Blog Content -->
+    <article class="blog-content">
+      <div [innerHTML]="formattedContent" class="prose"></div>
+    </article>
+
+    <!-- Blog Footer -->
+    <footer class="blog-footer">
+      <div class="footer-divider"></div>
+      <div class="footer-content">
+        <p class="footer-text">
+          Thanks for reading! If you enjoyed this post, consider 
+          <a href="#" class="footer-link">subscribing to my newsletter</a> 
+          for more insights and updates.
+        </p>
+        <div class="social-share">
+          <span class="share-text">Share:</span>
+          <a class="share-link" (click)="shareOnX($event)">X</a>
+          <a class="share-link" (click)="shareOnLinkedIn($event)">LinkedIn</a>
+          <a class="share-link" (click)="copyLink($event)">Copy Link</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Navigation to other posts -->
+    <div class="post-navigation">
+      <div class="nav-section">
+        <button class="nav-post-btn" *ngIf="previousPost" (click)="navigateToPost(previousPost.id)">
+          <span class="nav-direction">← Previous</span>
+          <span class="nav-post-title">{{ previousPost.title }}</span>
+        </button>
+      </div>
+      <div class="nav-section">
+        <button class="nav-post-btn next" *ngIf="nextPost" (click)="navigateToPost(nextPost.id)">
+          <span class="nav-direction">Next →</span>
+          <span class="nav-post-title">{{ nextPost.title }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-container" *ngIf="!currentPost">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Loading post...</p>
+  </div>
+
+  <!-- Error State -->
+  <div class="error-container" *ngIf="error">
+    <h2 class="error-title">Post Not Found</h2>
+    <p class="error-text">{{ error }}</p>
+    <button class="error-back-btn" (click)="goBack()">Back to Blog</button>
+  </div>
