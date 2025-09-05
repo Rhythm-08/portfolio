@@ -1,1 +1,30 @@
-<p>blogs works!</p>
+<div class="blog-container">
+    <header class="blog-header">
+      <h1>Blog</h1>
+      <p class="blog-description">
+        This is where I write. Subscribe to my 
+        <a href="#" class="newsletter-link">newsletter</a> 
+        to get future posts straight to your inbox.
+      </p>
+    </header>
+
+    <div class="blog-posts">
+      <article 
+        *ngFor="let post of blogPosts" 
+        class="blog-post"
+        [attr.data-category]="post.category.toLowerCase()"
+      >
+        <div class="post-header">
+          <span class="post-emoji">{{ post.emoji }}</span>
+          <h2 class="post-title">{{ post.title }}</h2>
+        </div>
+        <div class="post-meta">
+          <span class="post-date">{{ post.date }}</span>
+          <span class="meta-separator">•</span>
+          <span class="post-read-time">{{ post.readTime }}</span>
+          <span class="meta-separator">•</span>
+          <span class="post-category">{{ post.category }}</span>
+        </div>
+      </article>
+    </div>
+  </div>
