@@ -32,7 +32,7 @@ export class ProjectsComponent {
       date: 'July 2023',
       githubUrl: 'https://github.com/Rhythm-08/Spotify-App',
       liveUrl: 'https://spotify-clone-c20c4.web.app/home',
-      imageUrl: 'https://private-user-images.githubusercontent.com/125264783/241900106-3b718d31-cc9f-476f-903d-81044adcbe8b.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTcyNTI5MzQsIm5iZiI6MTc1NzI1MjYzNCwicGF0aCI6Ii8xMjUyNjQ3ODMvMjQxOTAwMTA2LTNiNzE4ZDMxLWNjOWYtNDc2Zi05MDNkLTgxMDQ0YWRjYmU4Yi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwOTA3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDkwN1QxMzQzNTRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mMDM3Mzk1ZGMwZTNmZjY2Y2Q1MDM0MWUxODU1N2VjY2E2NjBiODdhYzFmMzY5ZmFkNTAzMWJiZjk4YmQ2ODEwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.YIrIIUFEOY0oZrzm-vezUBzwUaYbaQePmARVbaaEGpo'
+      imageUrl: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&h=300&fit=crop'
     },    
     {
       id: '2',
