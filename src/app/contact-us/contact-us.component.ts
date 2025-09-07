@@ -2,6 +2,9 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MessageService } from '../services/message.service';
+import { Analytics } from '@angular/fire/analytics';
+import { logEvent } from 'firebase/analytics';
 @Component({
   selector: 'app-contact-us',
   imports: [CommonModule,ReactiveFormsModule],
@@ -14,6 +17,8 @@ export class ContactUsComponent implements OnInit{
 
   private formBuilder = inject(FormBuilder);
   private toastr = inject(ToastrService);
+  private messageService = inject(MessageService);
+  private analytics = inject(Analytics);
 
   ngOnInit(): void {
     this.initializeForm();
@@ -33,21 +38,29 @@ export class ContactUsComponent implements OnInit{
   get email() { return this.contactForm.get('email'); }
   get message() { return this.contactForm.get('message'); }
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     if (this.contactForm.valid) {
       this.isSubmitting = true;
-      
-      // Simulate API call
-      setTimeout(() => {
-        console.log('Form submitted:', this.contactForm.value);
-        
-        // Show success toastr
+
+      try{
+        await this.messageService.saveMessage({
+          fullName: this.fullName?.value,
+          email: this.email?.value,
+          message: this.message?.value
+        });
+        logEvent(this.analytics, 'contact_form_submission',{
+          name: this.fullName?.value,
+          email: this.email?.value
+        })
         this.showSuccessToast();
-        
-        // Reset form
         this.contactForm.reset();
         this.isSubmitting = false;
-      }, 1000);
+
+      }catch (error) {
+        const message = "Error saving message."
+        console.error(message, error);
+        this.showErrorToast(message);
+      }
     } else {
       this.markFormGroupTouched();
       this.showErrorToast();
@@ -59,8 +72,8 @@ export class ContactUsComponent implements OnInit{
     this.toastr.success('Thank you for your message! I\'ll get back to you soon.', 'Message Sent');
   }
 
-  private showErrorToast(): void {
-    this.toastr.error('Please fill in all required fields correctly.', 'Form Error');
+  private showErrorToast(message?:string): void {
+    this.toastr.error(message || 'Please fill in all required fields correctly.', 'Form Error');
   }
 
   private markFormGroupTouched(): void {
