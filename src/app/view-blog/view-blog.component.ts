@@ -40,61 +40,70 @@ export class ViewBlogComponent implements OnInit{
   private blogPosts: BlogPost[] = [
     {
       id: '1',
-      title: 'On Product Sense Interviews',
-      emoji: '🧠',
-      date: 'Aug 02, 2025',
-      readTime: '5 min',
-      category: 'Career',
+      title: 'Mastering AI/ML Model Deployment',
+      emoji: '🤖',
+      date: 'Sep 07, 2025',
+      readTime: '6 min',
+      category: 'Machine Learning',
       author: 'Rhythm Sharma',
-      tags: ['Product Management', 'Interviews', 'Career Growth'],
+      tags: ['AI', 'ML Deployment', 'MLOps', 'Cloud'],
       content: `
-        <p>I've been spending a good bit of time in the Product Manager interview cycle lately, and one recurring interview format that keeps coming back is the "Product Sense" interview. These interviews are typically framed around a prompt like "How would you design X" or "How would you improve X," and aim to dig into your ability to think through an ambiguous problem in a structured way, while communicating clearly throughout.</p>
-
-        <p>It can be easy to spin your wheels or get stuck; I've experienced it plenty of times. The one thing I've learned from practice, of course) that helped me quite a bit was having a plan of attack beforehand. The "plan of attack" that's worked for me is here, in the form of a template, tips, and resources. I've found that if you have a default structure and adapt it to your needs well, that's half the battle. Once you win that, all you have to do is execute, and enjoy the fun part: creatively solving a problem with someone else.</p>
-
-        <h2>A TEMPLATE</h2>
-
-        <h3>1. Clarifying Questions</h3>
-        <p>Anything unclear off the rip? e.g. "Can you further define 'improve' or 'engagement' or what platform we're talking about? Or is this more open-ended? I'm assuming I'm a PM at X? Is that cool?"</p>
-
-        <h3>2. Structure 🧠</h3>
-        <p>Don't just slap on frameworks. Think about what makes sense given the framing of the prompt. e.g. Do you already know your pain point or target persona? Pick and choose from the following and adapt it to the discussion:</p>
-
+        <p>Deploying machine learning models is often more challenging than training them. A model that works perfectly on your local machine might fail in production due to differences in environment, scaling issues, or data inconsistencies.</p>
+    
+        <p>In this post, I’ll walk you through best practices for deploying AI/ML models efficiently, from local testing to full-scale production deployment.</p>
+    
+        <h2>1. Local Testing 🖥️</h2>
+        <p>Before deploying, ensure your model works as expected in a controlled environment:</p>
         <ul>
-          <li><strong>⭐ Motivation:</strong> Why does this matter?</li>
-          <li><strong>⭐ Users:</strong> Who and what use cases should we build for?</li>
-          <li><strong>⭐ Problem:</strong> What pain points do the target segment run into?</li>
-          <li><strong>⭐ Solutions:</strong> How should we address the identified pain point?</li>
-          <li><strong>⭐ Design:</strong> What should the prioritized approach look like in user-land?</li>
-          <li><strong>Risk Mitigation:</strong> What are potential risks or open questions?</li>
-          <li><strong>Evaluation:</strong> How would you validate or test that this worked or didn't?</li>
+          <li>Test with a variety of inputs and edge cases.</li>
+          <li>Check performance metrics such as latency and throughput.</li>
+          <li>Validate model predictions against known datasets.</li>
         </ul>
-
-        <h3>3. Motivation 🧠</h3>
+    
+        <h2>2. Containerization 📦</h2>
+        <p>Using Docker or similar tools ensures that your model runs consistently across environments:</p>
         <ul>
-          <li><strong>Impact for Users:</strong> What is the company's mission and what does it mean for users? Why should they care that the product exists or is improved upon</li>
-          <li><strong>Competition + Trends:</strong> What competitors exist out there? Are there any trends occurring in the space that are relevant?</li>
-          <li><strong>Strengths to Leverage:</strong> Does the company have existing building blocks, market share, or tools that are relevant to the prompt?</li>
-          <li><strong>Strategic + Business Goals:</strong> How does this fit into the company's goals? Increased market share? Activation? Retention? Revenue?</li>
+          <li>Create a Docker image with all dependencies.</li>
+          <li>Test the container locally before deploying.</li>
+          <li>Keep the image lightweight for faster scaling.</li>
         </ul>
-
-        <h3>4. User Segmentation 🧠</h3>
-        <p>Start thinking through broad segments based on frequency + use cases, and then segment further until you have a useful, mutually exclusive, oddly specific cut. Then prioritize one based on audience size / frequency of use / alignment with company strategy. More concretely this means:</p>
-
-        <ol>
-          <li><strong>Broad Segments:</strong> It's easiest to start with frequency of use + different use cases if they come to mind here.</li>
-          <li><strong>Specific Segments:</strong> Hone in on each until you have a oddly specific cut of a few different personas.</li>
-          <li><strong>Prioritization:</strong> Assess each on 1) Audience Size 2) Frequency and 3) Alignment with Strategic Goals. Pick one to focus on and explain your reasoning out loud.</li>
-        </ol>
-
-        <h3>5. Problem Identification 🧠</h3>
-        <p>Once you have a target segment, it's time to dig into pain points. Once again it's simplest to start broad and then get specific afterwards. Map out the user journey, then identify where friction occurs, and connect it to a hypothesis for why the problem exists. Laid out this looks like:</p>
-
-        <ol>
-          <li><strong>User Journey:</strong> Map out a quick list or flow of steps of how the target persona or segment would use the product.</li>
-        </ol>
+    
+        <h2>3. Deployment Options ☁️</h2>
+        <p>Choose the deployment strategy based on your project needs:</p>
+        <ul>
+          <li><strong>Serverless Functions:</strong> Ideal for small, low-latency inference tasks.</li>
+          <li><strong>REST APIs:</strong> Wrap your model with a Flask/FastAPI server.</li>
+          <li><strong>Kubernetes:</strong> For large-scale, multi-model deployments with scaling.</li>
+        </ul>
+    
+        <h2>4. Monitoring & Logging 📊</h2>
+        <p>Once deployed, actively monitor your model to catch issues early:</p>
+        <ul>
+          <li>Track request/response times and error rates.</li>
+          <li>Log predictions and inputs for auditing and debugging.</li>
+          <li>Set up alerts for performance drops or abnormal predictions.</li>
+        </ul>
+    
+        <h2>5. Continuous Integration & Deployment (CI/CD) 🔄</h2>
+        <p>Automate model updates and testing to ensure reliability:</p>
+        <ul>
+          <li>Integrate unit tests for model code and inference scripts.</li>
+          <li>Use CI/CD pipelines to automatically build, test, and deploy models.</li>
+          <li>Version control your model weights and code separately for reproducibility.</li>
+        </ul>
+    
+        <h2>6. Scaling & Optimization ⚡</h2>
+        <p>As traffic grows, ensure your deployment can handle load:</p>
+        <ul>
+          <li>Use batching for inference to reduce latency.</li>
+          <li>Optimize models with quantization or pruning where possible.</li>
+          <li>Leverage cloud autoscaling and load balancers for peak demand.</li>
+        </ul>
+    
+        <p>Following these practices will make your AI/ML model deployment smoother, more reliable, and ready for real-world use. Deploy smart, monitor closely, and iterate quickly!</p>
       `
     }
+    
   ];
 
   constructor(

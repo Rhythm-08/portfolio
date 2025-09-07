@@ -28,11 +28,11 @@ export class BlogsComponent {
   blogPosts: BlogPost[] = [
     {
       id: '1',
-      title: 'On Product Sense Interviews',
-      emoji: '🧠',
-      date: 'Aug 02, 2025',
-      readTime: '5 min',
-      category: 'Career'
+      title: 'Mastering AI/ML Model Deployment',
+      emoji: '🤖',
+      date: 'Sep 07, 2025',
+      readTime: '6 min',
+      category: 'Machine Learning'
     },
     // {
     //   id: '2',

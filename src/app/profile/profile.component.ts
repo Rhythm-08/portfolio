@@ -78,34 +78,15 @@ export class ProfileComponent {
   recentPosts: BlogPost[] = [
     {
       id: 1,
-      icon: '📝',
-      title: 'On Product Sense Interviews',
-      date: 'Aug 02, 2025',
-      readTime: '5 min',
-      category: 'Career',
-      excerpt: "I've been spending a good bit of time in the Product Manager interview cycle lately, and with that comes new games to learn. One recurring game that keeps coming back is the \"Product Sense\" interview...",
+      icon: '🤖',
+      title: 'Mastering AI/ML Model Deployment',
+      date: 'Sep 07, 2025',
+      readTime: '6 min',
+      category: 'Machine Learning',
+      excerpt: "Deploying machine learning models is often more challenging than training them. A model that works locally might fail in production due to environment differences, scaling issues, or data inconsistencies...",
       slug: '1'
-    },
-    // {
-    //   id: 2,
-    //   icon: '🛠️',
-    //   title: 'Learnings from 4 Years at Metabase',
-    //   date: 'Jul 18, 2025',
-    //   readTime: '6 min',
-    //   category: 'Career',
-    //   excerpt: "After 4 exciting years, I'm parting ways with Metabase. It's been a fulfilling run, working with smart people to build the most delightful business intelligence tool out there while scaling the team from 25 → 100+ employees...",
-    //   slug: 'metabase-learnings'
-    // },
-    // {
-    //   id: 3,
-    //   icon: '⚡',
-    //   title: '29 Principles for 29 Years',
-    //   date: 'Jul 16, 2025',
-    //   readTime: '3 min',
-    //   category: 'Life',
-    //   excerpt: "Today I turned 29 and this birthday has more of a \"nothing\" feeling than those before it. I don't quite have an answer for why that's the case. Maybe it's part of getting older. Maybe it's more stability in my day-to-day than in years past...",
-    //   slug: '29-principles'
-    // }
+    }
+    
   ];
 
   careerHistory: CareerItem[] = [
