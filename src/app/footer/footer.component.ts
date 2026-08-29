@@ -28,7 +28,7 @@ export class FooterComponent {
   readonly socialLinks: any = [
     {
       name: 'X',
-      url: 'https://x.com/RhythmSankhayan',
+      url: 'https://x.com/BloodcrownDren',
       icon: faXTwitter
     },
     {
