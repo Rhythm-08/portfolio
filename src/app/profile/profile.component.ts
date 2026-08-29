@@ -59,7 +59,7 @@ export class ProfileComponent {
   socialLinks: SocialLink[] = [
     {
       name: 'X.com',
-      url: 'https://x.com/RhythmSankhayan',
+      url: 'https://x.com/BloodcrownDren',
       icon: faXTwitter,
     },
     
